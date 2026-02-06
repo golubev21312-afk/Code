@@ -83,7 +83,7 @@ src/
 │   ├── common/       # LanguageIcon, TechIcons
 │   └── layout/       # Header, RootLayout
 ├── data/snippets/    # 215+ сниппетов по категориям
-├── pages/            # Home, Snippets, Favorites, Quiz
+├── pages/            # Home, Snippets, Favorites, Quiz, Snippet, 404
 ├── router/           # React Router конфигурация
 ├── providers/        # ThemeProvider
 ├── store/            # Zustand (theme, favorites)
