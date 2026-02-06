@@ -77,6 +77,7 @@ export function SnippetCard({
   className,
 }: SnippetCardProps) {
   const [copied, setCopied] = useState(false)
+  const [heartAnim, setHeartAnim] = useState(false)
 
   // Zustand store для избранного
   const isFavorite = useFavoritesStore((state) => state.favoriteIds.includes(snippet.id))
@@ -106,6 +107,10 @@ export function SnippetCard({
   }
 
   const handleFavorite = () => {
+    if (!isFavorite) {
+      setHeartAnim(true)
+      setTimeout(() => setHeartAnim(false), 400)
+    }
     toggleFavorite(snippet.id)
     toast.success(!isFavorite ? 'Добавлено в избранное' : 'Удалено из избранного')
   }
@@ -287,7 +292,8 @@ export function SnippetCard({
             <Heart
               className={cn(
                 'h-4 w-4 transition-all',
-                isFavorite && 'fill-current scale-110'
+                isFavorite && 'fill-current scale-110',
+                heartAnim && 'animate-heart-pop'
               )}
             />
           </Button>

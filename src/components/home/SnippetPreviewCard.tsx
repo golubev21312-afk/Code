@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -38,12 +39,17 @@ interface SnippetPreviewCardProps {
 }
 
 export function SnippetPreviewCard({ snippet, className }: SnippetPreviewCardProps) {
+  const [heartAnim, setHeartAnim] = useState(false)
   const isFavorite = useFavoritesStore((state) => state.favoriteIds.includes(snippet.id))
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite)
 
   const handleFavorite = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    if (!isFavorite) {
+      setHeartAnim(true)
+      setTimeout(() => setHeartAnim(false), 400)
+    }
     toggleFavorite(snippet.id)
     toast.success(!isFavorite ? 'Добавлено в избранное' : 'Удалено из избранного')
   }
@@ -81,7 +87,8 @@ export function SnippetPreviewCard({ snippet, className }: SnippetPreviewCardPro
               <Heart
                 className={cn(
                   'h-4 w-4 transition-all',
-                  isFavorite && 'fill-current scale-110'
+                  isFavorite && 'fill-current scale-110',
+                  heartAnim && 'animate-heart-pop'
                 )}
               />
             </Button>

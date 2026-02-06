@@ -3,6 +3,7 @@ import { RootLayout } from '@/components/layout/RootLayout'
 import { HomePage } from '@/pages/HomePage'
 import { SnippetsPage } from '@/pages/SnippetsPage'
 import { FavoritesPage } from '@/pages/FavoritesPage'
+import { QuizPage } from '@/pages/QuizPage'
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: 'favorites',
         element: <FavoritesPage />,
+      },
+      {
+        path: 'quiz',
+        element: <QuizPage />,
       },
     ],
   },

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Sun, Moon, Monitor, Code2, Heart, Home } from 'lucide-react'
+import { Sun, Moon, Monitor, Code2, Heart, Home, Trophy } from 'lucide-react'
 import { useThemeStore, type Theme } from '@/store/themeStore'
 import { useFavorites } from '@/store/favoritesStore'
 import { Button } from '@/components/ui/button'
@@ -41,6 +41,7 @@ const navLinks = [
   { to: '/', label: 'Главная', icon: Home },
   { to: '/snippets', label: 'Сниппеты', icon: Code2 },
   { to: '/favorites', label: 'Избранное', icon: Heart },
+  { to: '/quiz', label: 'Quiz', icon: Trophy },
 ]
 
 export function Header() {

@@ -14,6 +14,12 @@ export function HeroSection() {
     { label: 'В избранном', value: favoritesCount, icon: Heart },
   ]
 
+  const levelStats = [
+    { label: 'Начальный', value: stats.byLevel.beginner, color: 'text-green-500' },
+    { label: 'Средний', value: stats.byLevel.intermediate, color: 'text-yellow-500' },
+    { label: 'Продвинутый', value: stats.byLevel.advanced, color: 'text-red-500' },
+  ]
+
   return (
     <div className="relative py-16 md:py-24">
       <div className="container relative z-10">
@@ -66,6 +72,16 @@ export function HeroSection() {
               <Icon className="h-5 w-5 mx-auto mb-2 text-muted-foreground" />
               <div className="text-2xl md:text-3xl font-bold">{value}</div>
               <div className="text-xs md:text-sm text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Level Stats */}
+        <div className="mt-8 flex justify-center gap-6 md:gap-10">
+          {levelStats.map(({ label, value, color }) => (
+            <div key={label} className="text-center">
+              <div className={`text-xl md:text-2xl font-bold ${color}`}>{value}</div>
+              <div className="text-xs text-muted-foreground">{label}</div>
             </div>
           ))}
         </div>

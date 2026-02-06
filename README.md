@@ -1,6 +1,6 @@
 # Code Library
 
-Библиотека 180+ сниппетов и примеров кода для современной веб-разработки.
+Библиотека 215+ сниппетов и примеров кода для современной веб-разработки.
 
 ## Tech Stack
 
@@ -17,47 +17,48 @@
 
 - 🏠 Главная страница с приветствием и статистикой
 - 📚 Каталог сниппетов с поиском и фильтрами
-- ❤️ Страница избранного с персистентным хранением
+- ❤️ Страница избранного с анимацией сердечка
+- 🎯 Quiz режим — угадай что делает код
 - 🌓 Тёмная/светлая/системная тема
 - 📋 Копирование кода в буфер обмена
 - 🔍 Фильтрация по категориям и уровню сложности
-- 📊 Группировка по сложности (начальный/средний/продвинутый)
+- 📊 Группировка и статистика по уровням
 - 🎨 Подсветка синтаксиса для TypeScript, JavaScript, React, CSS, HTML
-- ✨ Анимации и визуальные эффекты
+- ✨ Анимации: floating icons, skeleton loading, heart pop
 - 📱 PWA — установка как приложение, работа офлайн
 
-## Сниппеты (184 шт.)
+## Сниппеты (215+ шт.)
 
 ### TypeScript (50 сниппетов)
-- **Utility Types** — Partial, Required, Pick, Omit, Record, и др.
+- **Utility Types** — Partial, Required, Pick, Omit, Record
 - **Generics** — Generic Functions, Constraints, Conditional Types
 - **Advanced** — Discriminated Unions, Type Guards, Template Literals
-- **Decorators** — Class, Method, Field, Accessor Decorators (TC39)
-- **Patterns** — Builder, Factory, Strategy, Observer, Result, State Machine
-- **Functions** — Overloads, Type Predicates, HOF, Async Typing
+- **Decorators** — Class, Method, Field, Accessor Decorators
+- **Patterns** — Builder, Factory, Strategy, Observer, State Machine
 
-### JavaScript (43 сниппета)
+### JavaScript (59 сниппетов)
 - **ES2025+** — Array.at, findLast, Object.groupBy, Promise.withResolvers
 - **Async** — async/await, Promise.all/allSettled/race, AbortController
 - **Web APIs** — Fetch, IntersectionObserver, Web Storage, Clipboard
-- **Modern Patterns** — Proxy, Generators, WeakMap/WeakSet, Symbols, Modules
-- **DOM** — Selectors, Manipulation, MutationObserver, ResizeObserver
+- **Utilities** — debounce, throttle, deepClone, memoize, pipe/compose
+- **Advanced** — retry backoff, EventEmitter, UUID, number formatting
 
-### React (40 сниппетов)
-- **Hooks** — useState, useEffect, useMemo, useCallback, useRef, и др.
-- **Patterns** — Suspense, Error Boundaries, Compound Components, HOC
-- **Context** — Basic, Reducer, Selectors, Composition, Testing
-- **Server Components** — RSC, Client Components, Server Actions, Streaming
+### React (48 сниппетов)
+- **Hooks** — useState, useEffect, useMemo, useCallback, useRef
+- **Custom Hooks** — useDebounce, useLocalStorage, useMediaQuery, useClickOutside
+- **Patterns** — Suspense, Error Boundaries, Compound Components, Portal
+- **Server Components** — RSC, Client Components, Server Actions
 - **Performance** — memo, Virtualization, Code Splitting
 
-### CSS/Tailwind (30 сниппетов)
+### CSS/Tailwind (37 сниппетов)
 - **Selectors** — :has(), :is(), :where(), :not(), nth-child
-- **Animations** — View Transitions, Scroll-driven, Keyframes, Motion Path
-- **Tailwind v4** — CSS Config, Dark Mode, Custom Variants, Container Queries
+- **Animations** — View Transitions, Scroll-driven, Keyframes
+- **Utilities** — truncate, aspect-ratio, glassmorphism, gradient border
+- **Tailwind v4** — CSS Config, Dark Mode, Custom Variants
 
 ### HTML (21 сниппет)
 - **Semantic** — Document Structure, Forms, Media, Dialog, Popover
-- **Accessibility** — ARIA Landmarks, Live Regions, Keyboard Navigation, Focus
+- **Accessibility** — ARIA Landmarks, Live Regions, Keyboard Navigation
 
 ## Разработка
 
@@ -76,13 +77,13 @@ src/
 ├── components/
 │   ├── ui/           # shadcn/ui компоненты
 │   ├── code/         # CodeBlock с подсветкой
-│   ├── snippets/     # SnippetCard, SnippetsByLevel
+│   ├── snippets/     # SnippetCard, SnippetsByLevel, Skeleton
 │   ├── home/         # HeroSection, CategoryShowcase
 │   ├── animations/   # FloatingIcons, AnimatedCard
-│   ├── common/       # LanguageIcon
+│   ├── common/       # LanguageIcon, TechIcons
 │   └── layout/       # Header, RootLayout
-├── data/snippets/    # 184 сниппета по категориям
-├── pages/            # HomePage, SnippetsPage, FavoritesPage
+├── data/snippets/    # 215+ сниппетов по категориям
+├── pages/            # Home, Snippets, Favorites, Quiz
 ├── router/           # React Router конфигурация
 ├── providers/        # ThemeProvider
 ├── store/            # Zustand (theme, favorites)
