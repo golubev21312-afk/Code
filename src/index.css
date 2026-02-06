@@ -243,3 +243,551 @@
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
 }
+
+/* ========================================
+   IMMERSIVE DESIGN SYSTEM
+   ======================================== */
+
+/* Glow color variables */
+:root {
+  --glow-blue: 96, 165, 250;
+  --glow-purple: 167, 139, 250;
+  --glow-pink: 244, 114, 182;
+  --glow-cyan: 34, 211, 238;
+  --glow-yellow: 250, 204, 21;
+  --glow-orange: 251, 146, 60;
+}
+
+/* ========================================
+   GLOW ANIMATIONS
+   ======================================== */
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(60px);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(80px);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) rotateY(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotateY(5deg) rotateX(3deg);
+  }
+  50% {
+    transform: translateY(-25px) rotateY(0deg) rotateX(-3deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateY(-5deg) rotateX(2deg);
+  }
+}
+
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes icon-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px var(--icon-glow-color));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px var(--icon-glow-color)) drop-shadow(0 0 60px var(--icon-glow-color));
+  }
+}
+
+@keyframes float-3d-deep {
+  0% {
+    transform: translateY(0) translateX(0) rotateX(10deg) rotateY(-10deg) translateZ(0);
+  }
+  10% {
+    transform: translateY(-30px) translateX(25px) rotateX(5deg) rotateY(-25deg) translateZ(20px);
+  }
+  20% {
+    transform: translateY(-50px) translateX(40px) rotateX(-5deg) rotateY(5deg) translateZ(40px);
+  }
+  30% {
+    transform: translateY(-35px) translateX(15px) rotateX(15deg) rotateY(-15deg) translateZ(25px);
+  }
+  40% {
+    transform: translateY(-70px) translateX(-20px) rotateX(-10deg) rotateY(20deg) translateZ(50px);
+  }
+  50% {
+    transform: translateY(-45px) translateX(-40px) rotateX(5deg) rotateY(30deg) translateZ(35px);
+  }
+  60% {
+    transform: translateY(-25px) translateX(-25px) rotateX(-15deg) rotateY(-5deg) translateZ(20px);
+  }
+  70% {
+    transform: translateY(-55px) translateX(10px) rotateX(8deg) rotateY(-20deg) translateZ(45px);
+  }
+  80% {
+    transform: translateY(-40px) translateX(35px) rotateX(-8deg) rotateY(15deg) translateZ(30px);
+  }
+  90% {
+    transform: translateY(-20px) translateX(15px) rotateX(12deg) rotateY(-8deg) translateZ(15px);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotateX(10deg) rotateY(-10deg) translateZ(0);
+  }
+}
+
+/* Logo break effect on click */
+@keyframes logo-break-left {
+  0% {
+    transform: translateX(0) rotateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50px) rotateZ(-25deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes logo-break-right {
+  0% {
+    transform: translateX(0) rotateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50px) rotateZ(25deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Carousel animations */
+@keyframes carousel-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: rotateY(0deg) rotateX(10deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(10deg);
+  }
+}
+
+/* ========================================
+   IMMERSIVE UTILITY CLASSES
+   ======================================== */
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.animate-float-3d {
+  animation: float-3d 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-text-shimmer {
+  animation: text-shimmer 4s linear infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+.animate-icon-glow {
+  animation: icon-glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-float-3d-deep {
+  animation: float-3d-deep 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* ========================================
+   3D LOGO STYLES
+   ======================================== */
+
+.logo-3d-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.logo-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float-3d-deep 10s ease-in-out infinite;
+}
+
+.logo-3d-icon {
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 30px var(--icon-glow-color, rgba(100, 100, 255, 0.3));
+}
+
+/* 3D depth layer - back shadow */
+.logo-3d-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  transform: translateZ(-20px) scale(1.05);
+  filter: blur(8px) brightness(0.3);
+  opacity: 0.6;
+}
+
+/* 3D highlight - top reflection */
+.logo-3d-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  transform: translateZ(1px);
+  pointer-events: none;
+}
+
+/* Hover effect for 3D logos */
+.logo-3d:hover {
+  animation-play-state: paused;
+}
+
+.logo-3d:hover .logo-3d-icon {
+  transform: rotateY(15deg) rotateX(-10deg) translateZ(30px) scale(1.1);
+  box-shadow:
+    0 35px 70px -15px rgba(0, 0, 0, 0.6),
+    0 0 50px var(--icon-glow-color, rgba(100, 100, 255, 0.5));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Logo break effect */
+.logo-break-container {
+  position: relative;
+  overflow: visible;
+}
+
+.logo-break-container.breaking .logo-half-left {
+  animation: logo-break-left 0.5s ease-out forwards;
+}
+
+.logo-break-container.breaking .logo-half-right {
+  animation: logo-break-right 0.5s ease-out forwards;
+}
+
+.logo-half {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo-half-left {
+  left: 0;
+  clip-path: inset(0 50% 0 0);
+}
+
+.logo-half-right {
+  right: 0;
+  clip-path: inset(0 0 0 50%);
+}
+
+/* ========================================
+   CAROUSEL
+   ======================================== */
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: carousel-slide 30s linear infinite;
+  width: max-content;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 320px;
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    width: 380px;
+  }
+}
+
+/* Shimmer gradient text */
+.text-gradient-shimmer {
+  background: linear-gradient(
+    90deg,
+    #60a5fa 0%,
+    #a78bfa 25%,
+    #f472b6 50%,
+    #a78bfa 75%,
+    #60a5fa 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* ========================================
+   GLOW CARD EFFECT
+   ======================================== */
+
+.card-glow {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--glow-blue), 0.5),
+    rgba(var(--glow-purple), 0.5),
+    rgba(var(--glow-pink), 0.3)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+.card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px -10px rgba(var(--glow-purple), 0.3),
+    0 10px 20px -5px rgba(var(--glow-blue), 0.2);
+}
+
+/* ========================================
+   BACKGROUND GLOW ORBS
+   ======================================== */
+
+.bg-glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow-orb-blue {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--glow-blue), 0.15) 0%, transparent 70%);
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+.bg-glow-orb-purple {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(var(--glow-purple), 0.12) 0%, transparent 70%);
+  animation: glow-pulse 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.bg-glow-orb-pink {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(var(--glow-pink), 0.1) 0%, transparent 70%);
+  animation: glow-pulse 7s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* ========================================
+   GLASS HEADER
+   ======================================== */
+
+.glass-header {
+  background: hsl(var(--background) / 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border) / 0.3);
+}
+
+.glass-header-solid {
+  background: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+}
+
+/* ========================================
+   IMMERSIVE BUTTON
+   ======================================== */
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--glow-blue), 0.6),
+    rgba(var(--glow-purple), 0.6)
+  );
+  z-index: -1;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 20px rgba(var(--glow-blue), 0.4),
+    0 0 40px rgba(var(--glow-purple), 0.2);
+}
+
+/* ========================================
+   SCROLL REVEAL STATES
+   ======================================== */
+
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================
+   RESPECT REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-fadeInUp,
+  .animate-slideInLeft,
+  .animate-gradient,
+  .animate-pulse-glow,
+  .animate-glow-pulse,
+  .animate-float-3d,
+  .animate-float-3d-deep,
+  .animate-reveal-up,
+  .animate-text-shimmer,
+  .animate-scroll-indicator,
+  .animate-icon-glow {
+    animation: none;
+  }
+
+  .text-gradient-shimmer {
+    animation: none;
+    background-size: 100% auto;
+  }
+
+  .scroll-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bg-glow-orb-blue,
+  .bg-glow-orb-purple,
+  .bg-glow-orb-pink {
+    animation: none;
+  }
+
+  .logo-3d {
+    animation: none;
+    transform: none;
+  }
+
+  .carousel-track {
+    animation: none;
+  }
+
+  .logo-break-container.breaking .logo-half-left,
+  .logo-break-container.breaking .logo-half-right {
+    animation: none;
+  }
+}
