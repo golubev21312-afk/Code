@@ -1,96 +1,103 @@
 import { Link } from 'react-router-dom'
-import { Code2, Heart, Sparkles, BookOpen, Tag } from 'lucide-react'
+import { Code2, Sparkles, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { getSnippetsStats } from '@/data/snippets'
-import { useFavorites } from '@/store/favoritesStore'
 import { htmlTags } from '@/data/tags/html-tags'
 import { cssProperties } from '@/data/tags/css-properties'
 import { popularTags } from '@/data/tags/popular-tags'
 
 export function HeroSection() {
   const stats = getSnippetsStats()
-  const { count: favoritesCount } = useFavorites()
-
   const tagsCount = htmlTags.length + cssProperties.length + popularTags.length
 
-  const statsItems = [
-    { label: 'Сниппетов', value: stats.total, icon: Code2 },
-    { label: 'Тегов', value: tagsCount, icon: Tag },
-    { label: 'Категорий', value: stats.categories, icon: BookOpen },
-    { label: 'В избранном', value: favoritesCount, icon: Heart },
-  ]
-
-  const levelStats = [
-    { label: 'Начальный', value: stats.byLevel.beginner, color: 'text-green-500' },
-    { label: 'Средний', value: stats.byLevel.intermediate, color: 'text-yellow-500' },
-    { label: 'Продвинутый', value: stats.byLevel.advanced, color: 'text-red-500' },
-  ]
-
   return (
-    <div className="relative py-16 md:py-24">
-      <div className="container relative z-10">
-        {/* Title */}
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-            <Sparkles className="h-4 w-4" />
-            Актуальная коллекция 2026
-          </div>
+    <div className="relative min-h-screen flex flex-col items-center justify-center px-4">
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+        {/* Badge */}
+        <div
+          className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-5 py-2 text-sm font-medium text-primary animate-fadeInUp"
+          style={{ animationDelay: '0.1s' }}
+        >
+          <Sparkles className="h-4 w-4" />
+          {stats.total}+ Snippets
+        </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Библиотека{' '}
-            <span className="text-gradient">Code Snippets</span>
-          </h1>
+        {/* Main Title */}
+        <h1 className="space-y-2">
+          <span
+            className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fadeInUp"
+            style={{ animationDelay: '0.2s' }}
+          >
+            Code
+          </span>
+          <span
+            className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gradient-shimmer animate-fadeInUp"
+            style={{ animationDelay: '0.3s' }}
+          >
+            Library
+          </span>
+        </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Современные паттерны и готовые решения для TypeScript, React, CSS и JavaScript.
-            Копируй, учись, применяй в своих проектах.
-          </p>
+        {/* Subtitle */}
+        <p
+          className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fadeInUp"
+          style={{ animationDelay: '0.4s' }}
+        >
+          Modern patterns for TypeScript, React, CSS & JavaScript
+        </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="gap-2 min-w-[180px]" asChild>
-              <Link to="/snippets">
-                <Code2 className="h-5 w-5" />
-                Смотреть сниппеты
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="gap-2 min-w-[180px]" asChild>
-              <Link to="/favorites">
-                <Heart className="h-5 w-5" />
-                Избранное
-                {favoritesCount > 0 && (
-                  <span className="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs">
-                    {favoritesCount}
-                  </span>
-                )}
-              </Link>
-            </Button>
-          </div>
+        {/* CTA Button */}
+        <div
+          className="pt-4 animate-fadeInUp"
+          style={{ animationDelay: '0.5s' }}
+        >
+          <Button
+            size="lg"
+            className="gap-3 text-lg px-8 py-6 btn-glow"
+            asChild
+          >
+            <Link to="/snippets">
+              <Code2 className="h-5 w-5" />
+              Browse Snippets
+            </Link>
+          </Button>
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
-          {statsItems.map(({ label, value, icon: Icon }) => (
-            <div
-              key={label}
-              className="text-center p-4 rounded-xl bg-card/50 border backdrop-blur-sm"
-            >
-              <Icon className="h-5 w-5 mx-auto mb-2 text-muted-foreground" />
-              <div className="text-2xl md:text-3xl font-bold">{value}</div>
-              <div className="text-xs md:text-sm text-muted-foreground">{label}</div>
-            </div>
-          ))}
+        <div
+          className="flex items-center justify-center gap-8 pt-8 text-muted-foreground animate-fadeInUp"
+          style={{ animationDelay: '0.6s' }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-bold text-foreground">
+              {stats.total}
+            </span>
+            <span className="text-sm">Snippets</span>
+          </div>
+          <div className="w-1 h-6 bg-border rounded-full" />
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-bold text-foreground">
+              {tagsCount}
+            </span>
+            <span className="text-sm">Tags</span>
+          </div>
+          <div className="w-1 h-6 bg-border rounded-full" />
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-bold text-foreground">
+              {stats.categories}
+            </span>
+            <span className="text-sm">Categories</span>
+          </div>
         </div>
+      </div>
 
-        {/* Level Stats */}
-        <div className="mt-8 flex justify-center gap-6 md:gap-10">
-          {levelStats.map(({ label, value, color }) => (
-            <div key={label} className="text-center">
-              <div className={`text-xl md:text-2xl font-bold ${color}`}>{value}</div>
-              <div className="text-xs text-muted-foreground">{label}</div>
-            </div>
-          ))}
-        </div>
+      {/* Scroll Indicator */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground animate-fadeInUp"
+        style={{ animationDelay: '0.8s' }}
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <ChevronDown className="h-5 w-5 animate-scroll-indicator" />
       </div>
     </div>
   )
