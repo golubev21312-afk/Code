@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { LayoutGrid, Layers, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -33,6 +34,7 @@ const levelLabels: Record<SkillLevel, string> = {
 type ViewMode = 'grid' | 'byLevel'
 
 export function SnippetsPage() {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [levelFilter, setLevelFilter] = useState<SkillLevel | 'all'>('all')
   const [categoryFilter, setCategoryFilter] = useState<string | 'all'>('all')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
@@ -43,6 +45,25 @@ export function SnippetsPage() {
   const snippetsByCategory = getSnippetsByCategory()
   const categories = getCategories()
   const stats = getSnippetsStats()
+
+  // Read category from URL on mount
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get('category')
+    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
+      setCategoryFilter(categoryFromUrl)
+    }
+  }, [searchParams, categories])
+
+  // Update URL when category changes
+  const handleCategoryChange = (category: string | 'all') => {
+    setCategoryFilter(category)
+    if (category === 'all') {
+      searchParams.delete('category')
+    } else {
+      searchParams.set('category', category)
+    }
+    setSearchParams(searchParams)
+  }
 
   // Get snippets based on search or filters
   const snippetsToShow = searchQuery.trim()
@@ -109,7 +130,7 @@ export function SnippetsPage() {
           <Button
             variant={categoryFilter === 'all' ? 'default' : 'outline'}
             size="sm"
-            onClick={() => setCategoryFilter('all')}
+            onClick={() => handleCategoryChange('all')}
           >
             Все категории
           </Button>
@@ -120,7 +141,7 @@ export function SnippetsPage() {
                 key={category}
                 variant={categoryFilter === category ? 'default' : 'outline'}
                 size="sm"
-                onClick={() => setCategoryFilter(category)}
+                onClick={() => handleCategoryChange(category)}
                 className="gap-2"
               >
                 {config && <LanguageIcon language={config.language} size="sm" />}
