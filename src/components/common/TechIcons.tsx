@@ -69,11 +69,13 @@ export function ReactIcon({ className }: IconProps) {
 export function CSSIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
-      <rect fill="#1572b6" width="128" height="128" rx="10" />
-      <path
-        fill="#fff"
-        d="M19.7 104.2L14.5 16h99l-5.2 88.1L64 115.5l-44.3-11.3zm70.5-73.3H37.9l1 11.5h50.2l-3 33.5-22 6.1-22.1-6.1-1.5-16.8h11.3l.8 8.5 11.5 3.1 11.5-3.1 1.2-13.5H36.4l-3-33.2h61.6l-.8 10z"
-      />
+      <rect fill="#264de4" width="128" height="128" rx="10" />
+      <path fill="#2965f1" d="M19.67 16l8.09 90.68L64 118l36.24-11.32L108.33 16H19.67z" />
+      <path fill="#ebebeb" d="M64 100.42l29.32-8.13 5.02-56.21H64v64.34z" />
+      <path fill="#fff" d="M64 56.05h14.72l1.01-11.36H64V33.53h27.63l-.26 2.97-2.72 30.46H64v-10.91z" />
+      <path fill="#ebebeb" d="M64.08 84.03l-.08.02-12.33-3.33-.79-8.84H39.51l1.55 17.39 22.94 6.37.08-.02v-11.59z" />
+      <path fill="#fff" d="M78.57 66.96l-1.33 14.87-13.16 3.56v11.59l23.01-6.38.17-1.9 1.97-22.11.21-2.29.83-9.33H64v10.95h14.72l-.15 1.04z" />
+      <text x="64" y="24" textAnchor="middle" fill="#fff" fontSize="10" fontWeight="bold" fontFamily="Arial">CSS3</text>
     </svg>
   )
 }
@@ -82,10 +84,10 @@ export function HTMLIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
       <rect fill="#e44d26" width="128" height="128" rx="10" />
-      <path
-        fill="#fff"
-        d="M19.7 104.2L14.5 16h99l-5.2 88.1L64 115.5l-44.3-11.3zm70.4-73.3H37.9l1 11.5h50.1l-3 33.6-22 6-22.1-6-1.5-16.9h11.3l.8 8.6 11.5 3 11.5-3 1.2-13.5H36.4l-2.9-33.2h61.5l-.9 10.9z"
-      />
+      <path fill="#f16529" d="M19.67 16l8.09 90.68L64 118l36.24-11.32L108.33 16H19.67z" />
+      <path fill="#ebebeb" d="M64 100.42V33.53H40.14l.87 9.77H64v10.06H30.46l2.59 29.06 30.87 8.56.08-.02v-11.59l-.08.02-16.2-4.38-1.04-11.64H57.8l.52 5.82 5.6 1.51.08-.02V66H77.7l-1.46 16.32L64 85.97v14.45z" />
+      <path fill="#fff" d="M64 56.05v10.03h24.09L86.63 82.3 64 88.56v11.86l30.95-8.58.23-2.57 3.55-39.78.37-4.09.72-8.06H64v10.11h17.75l-.87 9.77H64v-.27z" />
+      <text x="64" y="24" textAnchor="middle" fill="#fff" fontSize="9" fontWeight="bold" fontFamily="Arial">HTML5</text>
     </svg>
   )
 }
